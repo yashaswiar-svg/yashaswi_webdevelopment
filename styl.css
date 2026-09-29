@@ -1,0 +1,33 @@
+/* Navigation Bar */
+.color_nav {
+    background-color: #1e3a8a;
+}
+
+/* Navigation Links */
+.color_nav a {
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* Profile Image */
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile Card */
+.profile-card {
+    margin: 20px;
+}
+
+/* Form Container */
+.form-container {
+    padding: 15px;
+}
+
+/* Form Labels */
+.form-label {
+    display: block;
+    margin-top: 10px;
+}
