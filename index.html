@@ -1,534 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Yashaswi A R | Portfolio</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-        :root {
-            --ink: #172033;
-            --muted: #5d687d;
-            --accent: #2563eb;
-            --surface: #ffffff;
-            --soft: #eef4ff;
-            --line: #dbe3f0;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            color: var(--ink);
-            background: #f6f8fc;
-            font-family: "Poppins", sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 18px 8%;
-            background: var(--surface);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .logo {
-            margin: 0;
-            color: var(--accent);
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-
-        nav a {
-            color: var(--ink);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        section {
-            width: min(1080px, 84%);
-            margin: 0 auto;
-            padding: 64px 0;
-        }
-
-        .hero {
-            display: grid;
-            place-items: center;
-            min-height: 620px;
-        }
-
-        .card,
-        .project-card,
-        .achievement-card,
-        .contact-form {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            box-shadow: 0 12px 30px rgba(23, 32, 51, 0.07);
-        }
-
-        .card {
-            width: min(660px, 100%);
-            padding: 42px 48px;
-            text-align: center;
-        }
-
-        .avatar {
-            display: block;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
-            border: 5px solid var(--soft);
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        h2,
-        h3,
-        p {
-            margin-top: 0;
-        }
-
-        .card h2 {
-            margin-bottom: 6px;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .role {
-            margin-bottom: 24px;
-            color: var(--accent);
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .card p:not(.role),
-        #special p,
-        .project-card p,
-        .achievement-card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        strong,
-        h3,
-        .section-title {
-            font-weight: 700;
-        }
-
-        .section-title {
-            margin-bottom: 28px;
-            font-size: clamp(1.55rem, 3vw, 2rem);
-            text-align: center;
-        }
-
-        .skills,
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-        }
-
-        .skill {
-            padding: 16px;
-            color: var(--accent);
-            background: var(--soft);
-            border-radius: 9px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .project-card,
-        .achievement-card {
-            padding: 24px;
-        }
-
-        .project-card h3,
-        .achievement-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        .achievement-card {
-            margin-bottom: 16px;
-        }
-
-        .btn-row {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 26px;
-        }
-
-        .btn {
-            padding: 11px 22px;
-            color: #fff;
-            background: var(--accent);
-            border: 2px solid var(--accent);
-            border-radius: 8px;
-            font: inherit;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .btn-outline {
-            color: var(--accent);
-            background: transparent;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 8px;
-            width: min(620px, 100%);
-            margin: 0 auto;
-            padding: 28px;
-        }
-
-        label {
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        input {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 12px 14px;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            font: inherit;
-        }
-
-        .footer {
-            padding: 24px;
-            color: var(--muted);
-            background: var(--surface);
-            font-size: 0.85rem;
-            text-align: center;
-        }
-
-        @media (max-width: 700px) {
-            .navbar {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 18px 6%;
-            }
-
-            nav {
-                gap: 10px 14px;
-            }
-
-            section {
-                width: 88%;
-                padding: 44px 0;
-            }
-
-            .card {
-                padding: 32px 22px;
-            }
-
-            .avatar {
-                width: 125px;
-                height: 125px;
-            }
-
-            .btn-row {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yashaswi A R | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- NAVBAR -->
-    <header class="navbar">
-
-        <h1 class="logo">Yashaswi A R</h1>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-    </header>
-
-    <main>
-
-        <!-- ABOUT SECTION -->
-        <section id="about" class="hero">
-
-            <div class="card">
-
-                <img src="profile.jpg.jpeg" alt="Yashaswi Profile Photo" class="avatar">
-
-                <h2>Yashaswi A R</h2>
-
-                <p class="role">Data Science Student | AI & ML Enthusiast</p>
-
-                <p>
-                    Hello! I am Yashaswi A R, a postgraduate student
-                    specializing in Data Science.
-                </p>
-
-                <p>
-                    I am passionate about Artificial Intelligence,
-                    Machine Learning, Data Analytics, and building
-                    innovative technology solutions.
-                </p>
-
-                <p>
-                    I enjoy solving real-world problems using data
-                    and developing intelligent applications.
-                </p>
-
-                <p>
-                    My goal is to become a successful Data Scientist
-                    and contribute to meaningful projects.
-                </p>
-
-                <div class="btn-row">
-                    <button class="btn">Hire Me</button>
-                    <button class="btn btn-outline">Download CV</button>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SKILLS SECTION -->
-        <section id="skills">
-
-            <h2 class="section-title">My Skills</h2>
-
-            <div class="skills">
-
-                <div class="skill">Python</div>
-                <div class="skill">Machine Learning</div>
-                <div class="skill">Data Science</div>
-                <div class="skill">Artificial Intelligence</div>
-                <div class="skill">HTML</div>
-                <div class="skill">CSS</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Power BI</div>
-                <div class="skill">Data Visualization</div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects">
-
-            <h2 class="section-title">My Projects</h2>
-
-            <div class="projects">
-
-                <div class="project-card">
-
-                    <h3>1. VizMind</h3>
-
-                    <p>
-                        An intelligent data visualization and pattern
-                        discovery platform that helps users analyze
-                        datasets, generate visualizations, and discover
-                        meaningful patterns.
-                    </p>
-
-                    <p><strong>Technologies:</strong> Python, FastAPI, React, PostgreSQL</p>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>2. Enterprise RAG Research Assistant</h3>
-
-                    <p>
-                        An AI-powered research assistant that allows
-                        users to upload documents and ask questions
-                        with relevant answers and source citations.
-                    </p>
-
-                    <p><strong>Technologies:</strong> Python, FastAPI, Streamlit, ChromaDB</p>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>3. Weather Monitoring System</h3>
-
-                    <p>
-                        A real-time weather monitoring system that
-                        collects weather data using Kafka, transforms
-                        the data, and supports dashboards for farmers
-                        and general users.
-                    </p>
-
-                    <p><strong>Technologies:</strong> Python, Kafka, Power BI</p>
-
-                </div>
-
-
-                <div class="project-card">
-
-                    <h3>4. Sentiment Analysis Dashboard</h3>
-
-                    <p>
-                        A sentiment analysis project that analyzes
-                        citizen feedback and social media comments
-                        to identify opinions, emotions, and common
-                        concerns.
-                    </p>
-
-                    <p><strong>Technologies:</strong> Python, NLP, Machine Learning</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ACHIEVEMENTS SECTION -->
-        <section id="achievements">
-
-            <h2 class="section-title">My Achievements</h2>
-
-            <div class="achievement-card">
-
-                <h3>HackFest – First Prize</h3>
-
-                <p>
-                    Secured first place at the college level in
-                    HackFest and advanced to the second round
-                    in Bangalore.
-                </p>
-
-            </div>
-
-
-            <div class="achievement-card">
-
-                <h3>Chanakya University – First Prize</h3>
-
-                <p>
-                    Won first prize for developing the
-                    Shaikshinika Sankirna campus intelligence
-                    network website and application.
-                </p>
-
-            </div>
-
-
-            <div class="achievement-card">
-
-                <h3>Prompt to Product – Third Prize</h3>
-
-                <p>
-                    Secured third prize for developing a
-                    Treasure Hunt application.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- SPECIAL PARAGRAPH -->
-        <section id="special">
-
-            <h2 class="section-title">My Vision</h2>
-
-            <p>
-                I believe that technology has the power to transform
-                the world and solve real-life problems.
-            </p>
-
-            <p>
-                My passion for Data Science and Artificial Intelligence
-                motivates me to continuously learn, experiment, and
-                develop innovative solutions.
-            </p>
-
-            <p>
-                I aspire to build a career where I can combine
-                analytical thinking, creativity, and technology
-                to make a positive impact on society.
-            </p>
-
-        </section>
-
-
-        <!-- CONTACT SECTION -->
-        <section id="contact">
-
-            <h2 class="section-title">Contact Me</h2>
-
-            <form class="contact-form">
-
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name"
-                       placeholder="Enter your name">
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email"
-                       placeholder="Enter your email">
-
-                <label for="msg">Message</label>
-                <input type="text" id="msg" name="msg"
-                       placeholder="Write your message">
-
-                <button type="submit" class="btn">Send Message</button>
-
-            </form>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <p>&copy; 2026 Yashaswi A R | All Rights Reserved</p>
-
-    </footer>
-
+  <header class="navbar">
+    <a class="logo" href="#home">Yashaswi<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">HELLO, I'M</p>
+        <h1>Yashaswi <span>A R</span></h1>
+        <h2>Data Science Student <span class="divider">|</span> AI &amp; ML Enthusiast</h2>
+        <p class="intro">I turn data into insights and ideas into practical technology solutions. I enjoy exploring data science, artificial intelligence, and building projects that solve real-world problems.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#projects">Explore My Work</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="photo-glow"></div>
+        <img src="profile.jpg.jpeg" alt="Yashaswi A R" class="avatar">
+        <div class="photo-tag">Curious mind. Data-driven ideas.</div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="section-heading">
+        <p class="eyebrow">GET TO KNOW ME</p>
+        <h2>About <span>Me</span></h2>
+      </div>
+      <div class="about-card">
+        <p>Hello! I am Yashaswi A R, a postgraduate student specializing in Data Science.</p>
+        <p>I am passionate about Artificial Intelligence, Machine Learning, Data Analytics, and building innovative technology solutions.</p>
+        <p>I enjoy solving real-world problems using data and developing intelligent applications. My goal is to grow as a Data Scientist and contribute to meaningful projects.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">WHAT I WORK WITH</p>
+        <h2>My <span>Skills</span></h2>
+      </div>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Machine Learning</span>
+        <span class="skill">Data Science</span>
+        <span class="skill">Artificial Intelligence</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Data Visualization</span>
+        <span class="skill">NLP</span>
+        <span class="skill">Apache Kafka</span>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-tinted">
+      <div class="section-heading">
+        <p class="eyebrow">A FEW THINGS I'VE BUILT</p>
+        <h2>Featured <span>Projects</span></h2>
+      </div>
+      <div class="projects">
+        <article class="project-card">
+          <div class="project-number">01</div>
+          <h3>VizMind</h3>
+          <p>An intelligent data visualization and pattern discovery platform that helps users analyze datasets, create visualizations, and uncover meaningful patterns.</p>
+          <p class="tech"><strong>Technologies:</strong> Python, FastAPI, React, PostgreSQL</p>
+        </article>
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <h3>Enterprise RAG Research Assistant</h3>
+          <p>An AI-powered research assistant that lets users upload documents, ask questions, and receive answers supported by source citations.</p>
+          <p class="tech"><strong>Technologies:</strong> Python, FastAPI, Streamlit, ChromaDB</p>
+        </article>
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <h3>Weather Monitoring System</h3>
+          <p>A real-time weather data pipeline using Kafka, with data transformations and dashboards designed for general users and farmers.</p>
+          <p class="tech"><strong>Technologies:</strong> Python, Kafka, Power BI</p>
+        </article>
+        <article class="project-card">
+          <div class="project-number">04</div>
+          <h3>Sentiment Analysis Dashboard</h3>
+          <p>A dashboard that analyzes citizen feedback and social media comments to identify sentiment, topics, and recurring concerns.</p>
+          <p class="tech"><strong>Technologies:</strong> Python, NLP, Machine Learning</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="achievements" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">MILESTONES</p>
+        <h2>My <span>Achievements</span></h2>
+      </div>
+      <div class="achievements">
+        <article class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div><h3>HackFest — First Prize</h3><p>Secured first place at the college level and advanced to the second round in Bangalore.</p></div>
+        </article>
+        <article class="achievement-card">
+          <div class="achievement-icon">🎓</div>
+          <div><h3>Chanakya University — First Prize</h3><p>Won first prize for developing the Shaikshinika Sankirna campus intelligence network website and application.</p></div>
+        </article>
+        <article class="achievement-card">
+          <div class="achievement-icon">✨</div>
+          <div><h3>Prompt to Product — Third Prize</h3><p>Secured third prize for developing a Treasure Hunt application.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="vision">
+      <p class="eyebrow">WHAT DRIVES ME</p>
+      <h2>My Vision</h2>
+      <p>I believe technology can help solve real-life problems. I aspire to combine analytical thinking, creativity, and technology to build useful solutions and make a positive impact on society.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h2>Contact <span>Me</span></h2>
+        <p class="section-subtitle">Have a project idea or opportunity? Send me a message.</p>
+      </div>
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <button type="submit" class="btn">Send Message <span aria-hidden="true">→</span></button>
+        <p class="form-note">Note: This form is a visual demo and needs a backend or form service to send messages.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home">Yashaswi<span>.</span></a>
+    <p>© 2026 Yashaswi A R · Designed with curiosity and care.</p>
+  </footer>
 </body>
-
 </html>
-
